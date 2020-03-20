@@ -1,36 +1,45 @@
 <template>
-<div class="all-tasks">
-  <div class="tasks-block">
-    <div class="task-block">
-      <div class="task-item">
-        <div class="task-title">Задание 1</div>
-        <!-- <div class="task-body">Задание 12</div> -->
+  <div class="all-tasks">
+    <div class="tasks-block">
+      <div class="task-block">
+        <div class="task-item">
+          <div class="task-title" @click="setTask(1)">Задание 1</div>
+          <!-- <div class="task-body">Задание 12</div> -->
+        </div>
+      </div>
+      <div class="task-block">
+        <div class="task-item">
+          <div class="task-title">Задание 2</div>
+        </div>
+      </div>
+      <div class="task-block">
+        <div class="task-item">
+          <div class="task-title">Задание 4</div>
+        </div>
+      </div>
+      <div class="task-block">
+        <div class="task-item">
+          <div class="task-title">Задание 5</div>
+        </div>
       </div>
     </div>
-    <div class="task-block">
-      <div class="task-item">
-        <div class="task-title">Задание 2</div>
-      </div>
-    </div>
-    <div class="task-block">
-      <div class="task-item">
-        <div class="task-title">Задание 4</div>
-      </div>
-    </div>
-    <div class="task-block">
-      <div class="task-item">
-        <div class="task-title">Задание 5</div>
-      </div>
-    </div>
-  </div>
   </div>
 </template>
 
 <script>
+import { mapMutations } from "vuex";
+
 export default {
   name: "Tasks",
   data: function() {
     return {};
+  },
+
+  methods:{
+      setTask(item){
+          this.setOpenTask(item);
+      },
+        ...mapMutations(["setOpenTask"])
   }
 };
 </script>
