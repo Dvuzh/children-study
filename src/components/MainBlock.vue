@@ -1,7 +1,8 @@
 <template>
   <div class='f' v-if="openTask == null">
     <middle-block></middle-block>
-    <tasks></tasks>    
+    <!-- <tasks></tasks>  -->
+    <task-one></task-one>    
   </div>
   <div v-else>
       
@@ -10,13 +11,13 @@
 
 <script>
 import MiddleBlock from "./MiddleBlock";
-import Tasks from "./Tasks";
+import TaskOne from "./TaskOne";
 
 export default {
   name: "MainBlock",
   components: {
     MiddleBlock,
-    Tasks
+    TaskOne
   },
 
   computed: {
