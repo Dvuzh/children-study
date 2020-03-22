@@ -2,7 +2,7 @@
   <div class='f' v-if="openTask == null">
     <middle-block></middle-block>
     <!-- <tasks></tasks>  -->
-    <task-one></task-one>    
+    <color-things></color-things>
   </div>
   <div v-else>
       
@@ -11,13 +11,14 @@
 
 <script>
 import MiddleBlock from "./MiddleBlock";
-import TaskOne from "./TaskOne";
+// import ColorThings from "./ColorThings";
+import ColorThings from "./ColorFish";
 
 export default {
   name: "MainBlock",
   components: {
     MiddleBlock,
-    TaskOne
+    ColorThings
   },
 
   computed: {

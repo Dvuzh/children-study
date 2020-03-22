@@ -116,6 +116,7 @@ const Pottis = function(targetSVG, startCallback) {
 		var use = this.shape("use", { id: useID } );
 
 		use.setAttributeNS(this.xlinkNS, 'xlink:href', '#' + defsID);
+		use.setAttribute('class', 'ic-1');
 
 		// NOTE: any x or y attributes would mess up with our transformations,
 		// and any previous transformations will be cleared here
