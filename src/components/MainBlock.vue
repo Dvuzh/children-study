@@ -12,7 +12,9 @@
 <script>
 import MiddleBlock from "./MiddleBlock";
 // import ColorThings from "./ColorThings";
-import ColorThings from "./ColorFish";
+// import ColorThings from "./ColorFish";
+// import ColorThings from "./PickColor";
+import ColorThings from "./Moving";
 
 export default {
   name: "MainBlock",
