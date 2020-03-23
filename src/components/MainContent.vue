@@ -75,7 +75,7 @@ import Sun from "./images/Sun.svg";
 import Pottis from "./libraries/pottis.js";
 // import {generateThings} from "../assets/generateThings";
 
-import RedApple from "./images/RedApple.svg";
+// import RedApple from "./images/RedApple.svg";
 import Banana from "./images/Bananas.svg";
 import EmptyApple from "./images/EmptyApple.svg";
 import Fish from "./images/Fish.svg";
@@ -106,12 +106,14 @@ export default {
 
       let svg = document.getElementById("fruits");
       this.pottis = new Pottis(svg);
-      this.pottis.importSVG(RedApple, "fruits1");
+      this.pottis.importSVG(EmptyApple, "fruits1");
       this.pottis.importSVG(Banana, "fruits2");
 
-      let data = this.generateThings("fruits", 2, this.pottis, this.forms);
-      this.forms = data[0];
-      this.pottis = data[1];
+      // let data = this.generateThings("fruits", 2, this.pottis, this.forms, false);
+      this.drawi(this.pottis, this.forms, "fruits1", 150, 150, 0.3, false, "ic-yellow");
+      this.drawi(this.pottis, this.forms, "fruits2", 300, 150, 0.6, false, "ic-yellow");
+      // this.forms = data[0];
+      // this.pottis = data[1];
     },
     drawApples() {
       this.pottis = null;
@@ -122,7 +124,7 @@ export default {
       this.pottis.importSVG(EmptyApple, "apples1");
       this.pottis.importSVG(Fish, "apples2");
       this.pottis.importSVG(Banana, "apples3");
-      let data = this.generateThings("apples", 3, this.pottis, this.forms);
+      let data = this.generateThings("apples", 3, this.pottis, this.forms, true);
       this.forms = data[0];
       this.pottis = data[1];
     },
@@ -144,25 +146,42 @@ export default {
     randomInt(min, max) {
       return min + Math.floor((max - min) * Math.random());
     },
-    generateThings(name, count, pottis, forms) {
+    generateThings(name, count, pottis, forms, click = true) {
       console.log("tut");
       for (let i = 0; i < count; i++) {
-        this.drawi(
-          pottis,
-          forms,
-          name + (i + 1),
-          50 + (name == "fruits" ? 300 : 150) * i,
-          100 + this.randomInt(-50, 50),
-          name == "fruits" ? 1 : 0.2
-        );
+        console.log(name + (i + 1))
+        if(name + (i + 1) == 'apples3') {
+          this.drawi(
+            pottis,
+            forms,
+            name + (i + 1),
+            150,
+            200 + this.randomInt(-50, 50),
+            0.5,
+            click
+          );
+        } else {
+          // let scale = (name == 'fruit' && i == 1) ? 0.6 : 0.2
+          this.drawi(
+            pottis,
+            forms,
+            name + (i + 1),
+            50 + (name == "fruits" ? 300 : 150) * i,
+            100 + this.randomInt(-50, 50),
+            name == "fruits" ? 1 : 0.2,
+            click
+          );
+        }
       }
       return [forms, pottis];
     },
-    drawi(pottis, forms, type, x, y, scale = 0.2) {
-      let obj = pottis.use(type, type, x, y);
+    drawi(pottis, forms, type, x, y, scale = 0.2, click = true, cls="ic-1") {
+      let obj = pottis.use(type, type, x, y, cls);
       forms.push(obj);
       pottis.scale(obj, scale);
-      pottis.addClick(obj, this.appleClicked);
+      if (click) {
+        pottis.addClick(obj, this.appleClicked);
+      }
       // pottis.addDrag(obj);
       // index++
     },
@@ -173,12 +192,14 @@ export default {
         return alert("Выберите цвет");
       }
       element.className.baseVal = "ic-" + this.currentColor;
-      if (element.id.includes("apples1")) {
+      if (element.id.includes("apples1") && element.className.baseVal == "ic-yellow") {
         this.isFinished = true;
         setTimeout(function() {
           alert("Яблочко окрашено желтым цветом. Нажмите Далее, чтобы закончить задание.");
         }, 500)
         
+      } else if(element.id.includes("apples1") && element.className.baseVal != "ic-yellow"){
+        alert("Вы окрасили яблоко неверным цветом");
       }
     },
     setTask(item) {

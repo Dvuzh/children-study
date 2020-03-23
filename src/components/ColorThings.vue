@@ -37,7 +37,7 @@
 <script>
 import { mapMutations } from "vuex";
 import Pottis from "./libraries/pottis.js";
-import RedApple from "./images/RedApple.svg";
+// import RedApple from "./images/RedApple.svg";
 import GreenApple from "./images/GreenApple.svg";
 import EmptyApple from "./images/EmptyApple.svg";
 import Fish from "./images/Fish.svg";
@@ -73,7 +73,7 @@ export default {
     this.pottis.importSVG(EmptyApple, "EmptyApple1");
     this.pottis.importSVG(EmptyApple, "EmptyApple2");
     this.pottis.importSVG(EmptyApple, "EmptyApple3");
-    this.pottis.importSVG(RedApple, "RedApple");
+    this.pottis.importSVG(EmptyApple, "EmptyApple");
     this.pottis.importSVG(GreenApple, "GreenApple");
     this.pottis.importSVG(Fish, "Fish");
     this.pottis.importSVG(Sun, "Sun");
