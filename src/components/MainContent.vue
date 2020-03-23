@@ -75,7 +75,7 @@ import Sun from "./images/Sun.svg";
 import Pottis from "./libraries/pottis.js";
 // import {generateThings} from "../assets/generateThings";
 
-import RedApple from "./images/RedApple.svg";
+// import RedApple from "./images/RedApple.svg";
 import Banana from "./images/Bananas.svg";
 import EmptyApple from "./images/EmptyApple.svg";
 import Fish from "./images/Fish.svg";
@@ -106,7 +106,7 @@ export default {
 
       let svg = document.getElementById("fruits");
       this.pottis = new Pottis(svg);
-      this.pottis.importSVG(RedApple, "fruits1");
+      this.pottis.importSVG(EmptyApple, "fruits1");
       this.pottis.importSVG(Banana, "fruits2");
 
       let data = this.generateThings("fruits", 2, this.pottis, this.forms);
@@ -153,13 +153,13 @@ export default {
           name + (i + 1),
           50 + (name == "fruits" ? 300 : 150) * i,
           100 + this.randomInt(-50, 50),
-          name == "fruits" ? 1 : 0.2
+          name == "fruits" ? 0.6 : 0.2
         );
       }
       return [forms, pottis];
     },
     drawi(pottis, forms, type, x, y, scale = 0.2) {
-      let obj = pottis.use(type, type, x, y);
+      let obj = pottis.use(type, type, x, y, 'ic-yellow');
       forms.push(obj);
       pottis.scale(obj, scale);
       pottis.addClick(obj, this.appleClicked);
@@ -169,17 +169,17 @@ export default {
 
     appleClicked(element, e) {
       e;
-      if (this.currentColor == null) {
-        return alert("Выберите цвет");
-      }
-      element.className.baseVal = "ic-" + this.currentColor;
-      if (element.id.includes("apples1")) {
-        this.isFinished = true;
-        setTimeout(function() {
-          alert("Яблочко окрашено желтым цветом. Нажмите Далее, чтобы закончить задание.");
-        }, 500)
+      // if (this.currentColor == null) {
+      //   return alert("Выберите цвет");
+      // }
+      // element.className.baseVal = "ic-" + this.currentColor;
+      // if (element.id.includes("apples1")) {
+      //   this.isFinished = true;
+      //   setTimeout(function() {
+      //     alert("Яблочко окрашено желтым цветом. Нажмите Далее, чтобы закончить задание.");
+      //   }, 500)
         
-      }
+      // }
     },
     setTask(item) {
       this.setOpenTask(item);
