@@ -3,7 +3,7 @@
     <div class="tasks-block">
       <div class="task-block">
         <div class="task">
-          <div class="task-title">Выберите желтые объекты</div>
+          <div class="task-title">Выберите желтый объекты</div>
           <div class="task-body">
             <div class="svg">
               <svg id="tutorial" version="1.1" width="500" height="400" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
@@ -13,9 +13,9 @@
                <!-- <use xlink:href="#GreenApple" x="15" y="15" transform=" scale(0.2, 0.2)"/> -->
             </svg>
             </div>
-            <div class="tools">
+            <!-- <div class="tools">
               
-            </div>
+            </div> -->
             
           </div>
         </div>
@@ -54,6 +54,7 @@ export default {
         "brown"
       ],
       currentColor: null,
+      usedYellowColor: false
     };
   },
   mounted() {
@@ -88,7 +89,11 @@ export default {
         return min + Math.floor((max - min) * Math.random());
       },
       randomColor() {
-        return this.colors[Math.floor(Math.random() * this.colors.length)]
+        let randColor = this.colors[Math.floor(Math.random() * this.colors.length)];
+        if(randColor == "yellow"){
+          this.usedYellowColor = true;
+        }
+        return randColor;
       },
       selectColor(color) {
         console.log(color)
@@ -98,7 +103,7 @@ export default {
         for(let i = 0; i < count; i++) {
           let cls = 'ic-' + this.randomColor();
           this.draw("Fish" + (i + 1), 50 + 150 * i, 200 + (this.randomInt(-50, 50)), 0.1, cls);
-          cls = 'ic-' + this.randomColor();
+          cls = this.usedYellowColor ? 'ic-' + this.randomColor() : 'ic-yellow';
           this.draw("EmptyApple" + (i + 1), 50 + 150 * i, 100 + (this.randomInt(-50, 50)), 0.1, cls);
         }
       },
@@ -116,20 +121,21 @@ export default {
       },
       appleClicked(element, e) {
         e
-        if (this.currentColor == null) {
-          return alert("Выберите цвет")
-        }
+        // if (this.currentColor == null) {
+        //   return alert("Выберите цвет")
+        // }
         console.log(element)
         console.log(element.className)
-        element.className.baseVal = "ic-" + this.currentColor
+        // element.className.baseVal = "ic-" + this.currentColor
         console.log(element.className)
-        // if (element.id.includes("EmptyApple")) {
-        //     console.log(element);
-        //     console.log(element.childNodes);         
-        // }
+        if (element.className.baseVal.includes("ic-yellow")) {
+          this.setSubTask(3);
+            // console.log(element);
+            // console.log(element.childNodes);         
+        }
         
       },
-        ...mapMutations(["setOpenTask"])
+        ...mapMutations(["setOpenTask", "setSubTask"])
   }
 };
 </script>

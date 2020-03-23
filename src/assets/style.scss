@@ -1,0 +1,100 @@
+.all-tasks {
+  height: 100vh;
+  background-image: url(http://cheep-cheep.ru/wp-content/uploads/2018/04/cipaegg_web_06.png);
+}
+
+.task {
+  width: 100%;
+  height: 100%;
+}
+
+.color {
+  min-width: 20px;
+  height: 58px;
+  border-radius: 50%;
+  margin-bottom: 10px;
+}
+
+.color:last-child {
+  margin-bottom: 0;
+}
+
+.task-block {
+  width: 40%;
+  justify-self: center;
+  background-color: #f2e3c4;
+  min-height: 145px;
+  height: 100%;
+  border-radius: 37px;
+}
+
+.task-body {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+.tools {
+  min-width: 65px;
+  margin-left: 10px;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.tasks-block {
+  padding-top: 100px;
+  width: 100%;
+  display: grid;
+  grid-row-gap: 100px;
+  background-image: url(http://cheep-cheep.ru/wp-content/uploads/2018/04/cipaegg_web_06.png);
+}
+
+.task-title {
+  font-family: "Ubuntu Condensed", Calibri, "AppleGothic", "MgOpen Modata",
+    sans-serif;
+  font-size: 24px;
+  line-height: 30px;
+  font-weight: lighter;
+  font-style: normal;
+  text-transform: uppercase;
+  text-decoration: none;
+  text-align: center;
+  color: rgb(104, 104, 104);
+}
+
+.task-item {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+}
+
+use.ic-1 {
+  fill: skyblue !important;
+}
+use.ic-2 {
+  fill: red !important;
+}
+
+use.ic-blue {
+  fill: blue !important;
+}
+use.ic-yellow {
+  fill: yellow !important;
+}
+use.ic-green {
+  fill: green !important;
+}
+use.ic-red {
+  fill: red !important;
+}
+use.ic-black {
+  fill: black !important;
+}
+use.ic-brown {
+  fill: brown !important;
+}
+#tutorial {
+  border: 1px solid black;
+  background-color: #fdf7eb;
+}

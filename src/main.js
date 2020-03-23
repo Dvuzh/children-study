@@ -2,6 +2,7 @@ import Vue from 'vue'
 import App from './App.vue'
 import Vuex from 'vuex';
 import store from './store'
+import "./assets/style.scss";
 
 window.Vue = require('vue');
 window.Vuex = require('vuex');

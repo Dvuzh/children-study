@@ -128,95 +128,33 @@ export default {
 };
 </script>
 
-<style lang="scss" scoped>
-.task-body {
-  display: flex;
-  flex-direction: row;
-}
-.tools {
-  min-width: 60px;
-  height: 40px;
-  border: 1px solid black;
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-  justify-content: flex-start;
-
-}
-.color {
-  min-width: 20px;
-  height: 20px;
-}
-</style>
-
 <style lang="scss">
-.tasks-block {
-  padding-top: 100px;
-  width: 100%;
-  display: grid;
-  /* grid-template-columns: repeat(2, 50%); */
-  grid-row-gap: 100px;
-  background-image: url(http://cheep-cheep.ru/wp-content/uploads/2018/04/cipaegg_web_06.png);
-}
-.task-block {
-  width: 40%;
-  justify-self: center;
-  background-color: #dbdbdb;
-  min-height: 145px;
-  height: 400px;
-}
+// use.ic-1 {
+//   fill: skyblue !important;
+// }
+// use.ic-2 {
+//   fill: red !important;
+// }
 
-.task-item {
-  display: flex;
-  justify-content: center;
-  flex-direction: column;
-  align-items: center;
-}
-
-.task-title {
-  font-family: "Ubuntu Condensed", Calibri, "AppleGothic", "MgOpen Modata",
-    sans-serif;
-  font-size: 24px;
-  line-height: 30px;
-  font-weight: lighter;
-  font-style: normal;
-  text-transform: uppercase;
-  text-decoration: none;
-  text-align: center;
-  color: rgb(104, 104, 104);
-}
-
-.task {
-  width: 80%;
-  height: 80%; 
-}
-
-use.ic-1 {
-  fill: skyblue !important;
-}
-use.ic-2 {
-  fill: red !important;
-}
-
-use.ic-blue {
-  fill: blue !important;
-}
-use.ic-yellow {
-  fill: yellow !important;
-}
-use.ic-green {
-  fill: green !important;
-}
-use.ic-red {
-  fill: red !important;
-}
-use.ic-black {
-  fill: black !important;
-}
-use.ic-brown {
-  fill: brown !important;
-}
-#tutorial {
-  border: 1px solid black;
-}
+// use.ic-blue {
+//   fill: blue !important;
+// }
+// use.ic-yellow {
+//   fill: yellow !important;
+// }
+// use.ic-green {
+//   fill: green !important;
+// }
+// use.ic-red {
+//   fill: red !important;
+// }
+// use.ic-black {
+//   fill: black !important;
+// }
+// use.ic-brown {
+//   fill: brown !important;
+// }
+// #tutorial {
+//   border: 1px solid black;
+// }
 </style>
