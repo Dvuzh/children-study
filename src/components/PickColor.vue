@@ -3,7 +3,7 @@
     <div class="tasks-block">
       <div class="task-block">
         <div class="task">
-          <div class="task-title">Выберите желтый объекты</div>
+          <div class="task-title">Выберите один желтый объект</div>
           <div class="task-body">
             <div class="svg">
               <svg id="tutorial" version="1.1" width="500" height="400" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
@@ -90,9 +90,13 @@ export default {
       },
       randomColor() {
         let randColor = this.colors[Math.floor(Math.random() * this.colors.length)];
-        if(randColor == "yellow"){
+        if (!this.usedYellowColor) {
           this.usedYellowColor = true;
+          randColor = "yellow"
         }
+        // if(randColor == "yellow"){
+        //   this.usedYellowColor = true;
+        // }
         return randColor;
       },
       selectColor(color) {
@@ -100,10 +104,12 @@ export default {
         this.currentColor = color
       },
       generateThings(count) {
+        // let isYellow = false;
         for(let i = 0; i < count; i++) {
           let cls = 'ic-' + this.randomColor();
+          // isYellow = (isYellow || cls == 'ic-yellow') ? true: false
           this.draw("Fish" + (i + 1), 50 + 150 * i, 200 + (this.randomInt(-50, 50)), 0.1, cls);
-          cls = this.usedYellowColor ? 'ic-' + this.randomColor() : 'ic-yellow';
+          cls = 'ic-' + this.randomColor();
           this.draw("EmptyApple" + (i + 1), 50 + 150 * i, 100 + (this.randomInt(-50, 50)), 0.1, cls);
         }
       },
