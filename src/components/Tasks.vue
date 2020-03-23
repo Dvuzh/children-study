@@ -1,15 +1,15 @@
 <template>
   <div class="all-tasks">
     <div class="tasks-block">
-      <div class="task-block" :class="{'finished':finishedTask == 1}">
+      <div class="task-block" :class="{'finished':finishedTask == 1}"  @click="setTask(1)">
         <div class="task-item">
-          <div class="task-title" @click="setTask(1)">Задание 1</div>
+          <div class="task-title">Задание 1</div>
           <!-- <div class="task-body">Задание 12</div> -->
         </div>
       </div>
-      <div class="task-block" :class="{'finished':finishedTaski == 2}">
+      <div class="task-block" :class="{'finished':finishedTaski == 2}"  @click="setTask(2)">
         <div class="task-item">
-          <div class="task-title" @click="setTask(2)">Задание 2</div>
+          <div class="task-title">Задание 2</div>
         </div>
       </div>
       <!-- <div class="task-block">
@@ -65,6 +65,7 @@ export default {
   justify-self: center;
   background-color: #f98d66;
   height: 145px;
+  cursor:pointer;
 }
 
 .task-item {

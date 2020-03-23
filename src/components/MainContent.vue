@@ -175,7 +175,10 @@ export default {
       element.className.baseVal = "ic-" + this.currentColor;
       if (element.id.includes("apples1")) {
         this.isFinished = true;
-        alert("Яблочко окрашено желтым цветом. Нажмите Далее, чтобы закончить задание.");
+        setTimeout(function() {
+          alert("Яблочко окрашено желтым цветом. Нажмите Далее, чтобы закончить задание.");
+        }, 500)
+        
       }
     },
     setTask(item) {

@@ -12,7 +12,7 @@
 
     <div class="navigation-menu">
       <ul class="navigation">
-        <li :class="{ active : active_el == 0 }">Задания</li>
+        <li :class="{ active : active_el == 0 }" class="menu-tasks" @click="setTask(null)">Задания</li>
       </ul>
     </div>
   </header>
@@ -20,12 +20,19 @@
 
 
 <script>
+import { mapMutations } from "vuex";
 export default {
   name: "Header",
   data: function() {
     return {
       active_el: 0
     };
+  },
+  methods: {
+    setTask(item) {
+      this.setOpenTask(item);
+    },
+    ...mapMutations(["setOpenTask"])
   }
 };
 </script>
@@ -176,5 +183,9 @@ export default {
   -webkit-box-shadow: 0 2px 2px 0px rgba(0, 0, 0, 0.05);
   -moz-box-shadow: 0 2px 2px 0px rgba(0, 0, 0, 0.05);
   /* box-shadow: 0 2px 2px 0px rgba(0, 0, 0, 0.05); */
+}
+
+.menu-tasks {
+  cursor: pointer;
 }
 </style>
